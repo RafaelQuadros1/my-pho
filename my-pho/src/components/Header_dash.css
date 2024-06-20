@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .Header_dash{
+    position:fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 25px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+  }
+
+.menu button{
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    outline: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  
+  .login button{
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    outline: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  
+  /* Responsive adjustments for smaller screens */
+  @media (max-width: 768px) {
+    .header {
+      padding: 5px 10px; /* Adjust padding for smaller screens */
+    }
+    .login button {
+      font-size: 14px; /* Adjust font size for smaller screens (optional) */
+    }
+  }
+  
+  /* Optional media query for even smaller screens (adjust as needed) */
+  @media (max-width: 480px) {
+    .login button {
+      font-size: 12px; /* Further font size adjustment for very small screens */
+    }
+  }
+  

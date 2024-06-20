@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+.Headersingup{
+    position:fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 25px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    z-index: 100;
+}
+
+.Headersingup h1 {
+    margin-left: 24rem;
+    font-size: 30px;
+}
+
+.Headersingup button{
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    outline: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+
+@media (max-width: 768px) {
+    .Headersingup h1 {
+        margin-left: 5rem;
+    }
+}

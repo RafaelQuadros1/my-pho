@@ -1,0 +1,50 @@
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    width: 100%;
+}
+
+.login_oi {
+    display: flex;
+    justify-content: center;
+    
+    
+    height: 30vh;
+    width: 100%;
+}
+
+.login_oi form {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+}
+
+.form input {
+    padding: 5px 10px;
+    margin: 10px;
+    margin-bottom: 10px;
+    border: #fff 0.5px solid;
+    border-bottom: #000000 1px solid;
+    outline: none;
+}
+
+.form button {
+    background-color: #FF5038;
+    color: #fff;
+    border-radius:30px;
+    border: none;
+    padding: 5px 60px;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: 500;
+    margin: 20px;
+}
+
+.form a {
+    text-decoration: none;
+    color: #FF5038;
+    font-weight: 500;
+}

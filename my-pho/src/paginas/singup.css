@@ -1,0 +1,77 @@
+/* General styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif; /* Choose a preferred font family */
+  }
+  
+  /* Container for layout */
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh; /* Ensures content fills viewport height */
+  }
+  
+  /* Logo section */
+  .logo {
+    flex: 1; /* Takes up available space proportionally */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Signup section */
+  .singup {
+    flex: 1; /* Takes up available space proportionally */
+    width: 100%;
+    max-width: 400px; /* Sets a maximum width for responsiveness */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Form styles */
+  .form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+  }
+  
+  .form input {
+    padding: 10px;
+    margin-bottom: 15px; /* Adjust spacing as needed */
+    outline: none;
+  }
+  
+  .form button {
+    background-color: #FF5038;
+    color: #fff;
+    border-radius:30px;
+    border: none;
+    padding: 5px 60px;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: 500;
+    margin: 20px;
+  }
+  
+  .form button:hover {
+    background-color: #ffffff;
+    color: black;
+  }
+  
+  .form a {
+    text-decoration: none;
+    color: #FF6B00;
+    font-weight: bold;
+    margin-top: 10px; /* Adjust spacing as needed */
+    transition: color 0.2s ease-in-out;
+  }
+  
+  .form a:hover {
+    color: #e65900;
+  }
+  
