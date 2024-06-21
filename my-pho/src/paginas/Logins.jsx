@@ -1,34 +1,60 @@
-import React, { useState } from 'react';
-import Headerlogin from '../components/Headerlogin'
-import logo from '../assets/logo.svg'
-import './login.css'
+import React, { useState, useEffect } from 'react';
+import Headerlogin from '../components/Headerlogin';
+import { useNavigate } from 'react-router-dom';
+import logo from '../assets/logo.svg';
+import './login.css';
 
 function Logins() {
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [IsLoggedIn, setIsLoggedIn] = useState(false); // State for login status
+
+    useEffect(() => {
+        // Check for existing data in localStorage on component mount
+        const storedData = localStorage.getItem('userData');
+        if (storedData) {
+            try {
+                const parsedData = JSON.parse(storedData);
+                setIsLoggedIn(true); // Set logged in if data exists
+            } catch (error) {
+                console.error('Error parsing stored data:', error);
+                localStorage.removeItem('userData'); // Remove corrupted data
+            }
+        }
+    }, []); // Empty dependency array to run only once on mount
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+
         try {
-            const response = await fetch("https://ligajovemapi-private.onrender.com/api/login", {
+            const response = await fetch('https://ligajovemapi-private.onrender.com/api/login', {
                 method: 'POST',
                 body: JSON.stringify({ email, password }),
                 headers: {
                     'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                }
+                    'Accept': 'application/json',
+                    // 'authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExOSwiaWF0IjoxNzE4OTk1MzcwLCJleHAiOjE3MTg5OTY1NzB9.ck9GWRAdzmUl_UYkbYUdVShE9iB4iZb1iacs72DTHH8',
+                },
             });
 
             if (!response.ok) {
-                throw new Error(`Erro na requisição: ${response.status}`);
+                throw new Error(`Dados Invalidos: ${response.status}`);
+
             }
 
             const data = await response.json();
-            console.log(data); 
-        } catch (error) {
-            console.error("Erro na requisição:", error);
+
+            // Store successful login data in localStorage
+            localStorage.setItem('token', JSON.stringify(data.token));
+            localStorage.setItem('email', JSON.stringify(email));
+            localStorage.setItem('password', JSON.stringify(password));
+            navigate('/Dash');
+        } catch (error) {   
+            console.error('Erro na requisição:', error);
         }
     };
+
     return (
         <>
             <Headerlogin />
@@ -37,14 +63,28 @@ function Logins() {
             </section>
             <div className='login_oi'>
                 <form className='form' onSubmit={handleSubmit}>
-                    <input type="email" placeholder="Digite seu email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                    <input type="password" placeholder="Digite sua password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                    <input
+                        required
+                        type="email"
+                        placeholder="Digite seu email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                    <input
+                        required
+                        type="password"
+                        placeholder="Digite sua password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
                     <button type='submit'>Continuar</button>
                     <p>Não tem cadastro?<a href="/"> Registre-se</a></p>
                 </form>
+
+
             </div>
         </>
-    )
+    );
 }
 
-export default Logins
+export default Logins;
