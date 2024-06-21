@@ -24,7 +24,7 @@ function Logins() {
             }
 
             const data = await response.json();
-            console.log(data); // Exemplo: exiba os dados no console
+            console.log(data); 
         } catch (error) {
             console.error("Erro na requisição:", error);
         }

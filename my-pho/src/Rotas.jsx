@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './paginas/Home'
 import Logins from './paginas/Logins'
 import Singups from './paginas/Singups'
+import Dash from './paginas/Dash'
 
 const Rotas = () => {
   return (
@@ -11,6 +12,7 @@ const Rotas = () => {
       <Route path='/' element={<Home/>}></Route>
       <Route path='/Logins' element={<Logins/>}></Route>
       <Route path='/Singups' element={<Singups/>}></Route>
+      <Route path='/Dash' element={<Dash/>}></Route>
     </Routes>
   </Router>
   )

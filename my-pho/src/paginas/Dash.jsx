@@ -6,31 +6,25 @@ function Dash() {
     return (
         <>
             <Header_dash />
-            <div className='about'>
-                <h1>Olá Acauã!</h1>
-                <h3>Essa é sua visão geral</h3>
-                <div className='grid-container'>
-                    <div className='grid-item'>
-                        <h1>oi</h1>
-                    </div>
-                    <div className='grid-item'>
-                        <h1>oi</h1>
-                    </div>
-                    <div className='grid-item'>
-                        <h1>oi</h1>
-                    </div>
+            <div className='info'>
+                <h1>Olá, Acauã!</h1>
+                <h4>Essa é sua visão geral</h4>
+
+            </div>
+            <div className='grid-info'>
+                <div className='item-info'>
+                    <h3>tutu</h3>
+                    <p>askdjkajskd kajsdkjskd</p>
                 </div>
-                <h1>Suas turmas</h1>
-
-                <div className='grid-turmas'>
-                    <div className='item-turma'>
-                        <h1>oi</h1>
-                    </div>
-                    
-
+                <div className='item-info'>
+                    <h3>tutu</h3>
+                    <p>askdjkajskd kajsdkjskd</p>
+                </div>
+                <div className='item-info'>
+                    <h3>tutu</h3>
+                    <p>askdjkajskd kajsdkjskd</p>
                 </div>
             </div>
-
         </>
     )
 }

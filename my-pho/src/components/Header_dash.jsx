@@ -10,7 +10,7 @@ function Header_dash() {
         <section className='menu'>
           <button><RiMenu2Line style={{ color: 'black', width: '30px', height: '30px' }} /></button>
         </section>
-        <section className='login'>
+        <section className='logins'>
           <button><FaUserCircle style={{ color: 'black', width: '30px', height: '40px' }} /></button>
         </section>
       </header>

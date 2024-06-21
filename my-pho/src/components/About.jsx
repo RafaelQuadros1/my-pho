@@ -22,9 +22,9 @@ function About() {
 
       </div>
       <div className='arrow'>
-        <RxDoubleArrowDown className='jk' />
+        <a className='jk' href="#title"><RxDoubleArrowDown  style={{width: '30px', height: '30px', }}/></a>
       </div>
-      <div className='title'>
+      <div id='title' className='title'>
         <h1>PRINCIPAIS USOS</h1>
       </div>
 
