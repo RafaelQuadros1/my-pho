@@ -22,7 +22,7 @@ function Logins() {
 
         async function validateToken() {
             try {       
-                const response = await fetch('http://localhost:3001/api/login', {
+                const response = await fetch('https://ligajovemapi-private.onrender.com/api/login', {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',
@@ -80,7 +80,6 @@ function Logins() {
             }
 
             const data = await response.json();
-
             // Store successful login data in localStorage
             localStorage.setItem('token', data.token);
             localStorage.setItem('email', JSON.stringify(email));
