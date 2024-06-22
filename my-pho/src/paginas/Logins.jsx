@@ -44,8 +44,8 @@ function Logins() {
             }
 
             const data = await response.json();
+            console.log(data)
 
-            // Store successful login data in localStorage
             localStorage.setItem('token', JSON.stringify(data.token));
             localStorage.setItem('email', JSON.stringify(email));
             localStorage.setItem('password', JSON.stringify(password));
