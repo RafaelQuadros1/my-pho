@@ -23,7 +23,7 @@ function Dash() {
     // Busca informações do usuário a partir do token
     const fetchUserData = async () => {
       try {
-        let response = await fetch('http://localhost:3001/api/teacher', {
+        let response = await fetch('https://ligajovemapi-private.onrender.com/api/teacher', {
           method: 'GET', // Specify the HTTP method 
           headers: {
             'Content-Type': 'application/json',

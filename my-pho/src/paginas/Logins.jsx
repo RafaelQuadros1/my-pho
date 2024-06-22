@@ -64,7 +64,7 @@ function Logins() {
         event.preventDefault();
 
         try {
-            let response = await fetch('http://localhost:3001/api/login', {
+            let response = await fetch('https://ligajovemapi-private.onrender.com/api/login', {
                 method: 'POST',
                 body: JSON.stringify({ email, password }),
                 headers: {
