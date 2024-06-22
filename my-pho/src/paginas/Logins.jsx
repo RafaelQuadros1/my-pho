@@ -11,8 +11,43 @@ function Logins() {
     const [IsLoggedIn, setIsLoggedIn] = useState(false); // State for login status
 
     useEffect(() => {
+        localStorage.setItem('token', '');
+        console.log(localStorage.getItem('token'));
+        
+        // Verifica se o token existe no localStorage
+        const token = localStorage.getItem('token');
+        if (token != '') {
+            validateToken();
+        }
+
+        async function validateToken() {
+            try {       
+                const response = await fetch('http://localhost:3001/api/login', {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                        'authorization': token,
+                    },
+                });
+
+                if (!response.ok) {
+                    return Error(response.status);
+                }
+
+                const data = await response.json();
+
+                // Store successful token in localStorage
+                localStorage.setItem('token', data.token);
+                console.log(localStorage.getItem('token'));
+                navigate('/Dash');
+            } catch  (error) {
+                console.error('Erro na requisição:', error);
+            }
+        }
+
         // Check for existing data in localStorage on component mount
-        const storedData = localStorage.getItem('userData');
+        /*const storedData = localStorage.getItem('userData');
         if (storedData) {
             try {
                 const parsedData = JSON.parse(storedData);
@@ -21,14 +56,15 @@ function Logins() {
                 console.error('Error parsing stored data:', error);
                 localStorage.removeItem('userData'); // Remove corrupted data
             }
-        }
+        }*/
+
     }, []); // Empty dependency array to run only once on mount
 
     const handleSubmit = async (event) => {
         event.preventDefault();
 
         try {
-            const response = await fetch('https://ligajovemapi-private.onrender.com/api/login', {
+            let response = await fetch('http://localhost:3001/api/login', {
                 method: 'POST',
                 body: JSON.stringify({ email, password }),
                 headers: {
@@ -44,9 +80,9 @@ function Logins() {
             }
 
             const data = await response.json();
-            console.log(data)
 
-            localStorage.setItem('token', JSON.stringify(data.token));
+            // Store successful login data in localStorage
+            localStorage.setItem('token', data.token);
             localStorage.setItem('email', JSON.stringify(email));
             localStorage.setItem('password', JSON.stringify(password));
             navigate('/Dash');
@@ -65,7 +101,6 @@ function Logins() {
                 <form className='form' onSubmit={handleSubmit}>
                     <input
                         required
-                        type="email"
                         placeholder="Digite seu email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
