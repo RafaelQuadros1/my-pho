@@ -54,7 +54,7 @@ function Dash() {
 
   return (
     <div>
-      <h1>Bem-vindo, {userData.avatar}!</h1>
+      <h1>Bem-vindo, {userData.name}!</h1>
       {/* Exibe outras informações do usuário aqui */}
     </div>
   );
