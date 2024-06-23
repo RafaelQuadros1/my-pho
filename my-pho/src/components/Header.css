@@ -13,7 +13,7 @@
     padding: 10px 25px;
     background-color: #ffffff;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     z-index: 100;
   }

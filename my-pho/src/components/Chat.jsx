@@ -48,14 +48,14 @@ const FloatingElementComponent = ({ onSubmit }) => {
         <div className="floating_element">
             <div className='body_chat'>
                 <div className='men'>
-                    <div className='igns'>
-                        <BiAtom style={{ color: 'black', width: '30px', height: '40px' }} />
+                    <div className='user'>
+                        <FaUserCircle className='img' style={{ color: 'black', width: '30px', height: '40px' }} />
                         <div className='text'>
 
                         </div>
                     </div>
-                    <div className='user'>
-                        <FaUserCircle className='img' style={{ color: 'black', width: '30px', height: '40px' }} />
+                    <div className='igns'>
+                        <BiAtom style={{ color: 'black', width: '30px', height: '40px' }} />
                         <div className='text'>
 
                         </div>

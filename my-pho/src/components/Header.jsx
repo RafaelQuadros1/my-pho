@@ -10,7 +10,6 @@ function Header() {
   return (
     <>
       <header className='header'>
-        <RiMenu2Line style={{color: 'black', width: '30px', height: '30px'}}/>
         <img src={logo} alt="logo" />
         <section className='login'>
         </section>

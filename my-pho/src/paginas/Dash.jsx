@@ -67,8 +67,6 @@ function Dash() {
         replaceTime1 = userData.next_class.init;
         replaceTime2 = '';
     }
-  
-  
   return (
     <>
       <Header_dash />
@@ -106,58 +104,6 @@ function Dash() {
         </section>
       </div>
       <div className='grid_salas'>
-        <div className='item_salas'>
-          <h1>oi</h1>
-          <p>asdasd</p>
-        </div>
-        <div className='item_salas'>
-          <h1>oi</h1>
-          <p>asdasd</p>
-        </div>
-        <div className='item_salas'>
-          <h1>oi</h1>
-          <p>asdasd</p>
-        </div>
-        <div className='item_salas'>
-          <h1>oi</h1>
-          <p>asdasd</p>
-        </div>
-        <div className='item_salas'>
-          <h1>oi</h1>
-          <p>asdasd</p>
-        </div>
-        <div className='item_salas'>
-          <h1>oi</h1>
-          <p>asdasd</p>
-        </div>
-        <div className='item_salas'>
-          <h1>oi</h1>
-          <p>asdasd</p>
-        </div>
-        <div className='item_salas'>
-          <h1>oi</h1>
-          <p>asdasd</p>
-        </div>
-        <div className='item_salas'>
-          <h1>oi</h1>
-          <p>asdasd</p>
-        </div>
-        <div className='item_salas'>
-          <h1>oi</h1>
-          <p>asdasd</p>
-        </div>
-        <div className='item_salas'>
-          <h1>oi</h1>
-          <p>asdasd</p>
-        </div>
-        <div className='item_salas'>
-          <h1>oi</h1>
-          <p>asdasd</p>
-        </div>
-        <div className='item_salas'>
-          <h1>oi</h1>
-          <p>asdasd</p>
-        </div>
         <div className='item_salas'>
           <h1>oi</h1>
           <p>asdasd</p>
