@@ -4,8 +4,10 @@ import { IoIosArrowForward } from "react-icons/io";
 import { FaUserCircle } from "react-icons/fa";
 import { BiAtom } from "react-icons/bi";
 import './Chat.css';
+import { useNavigate } from 'react-router-dom';
 
 function Chat() {
+    const navigate = useNavigate();
     const [isFloatingElementOpen, setIsFloatingElementOpen] = useState(false);
 
     // Function to open/close the floating element
@@ -18,36 +20,38 @@ function Chat() {
         event.preventDefault(); // Prevent default form submission
 
         // Collect input data from the form
-        const inputValue = document.querySelector('input[type="text"]').value;
+        const input = document.querySelector('input[type="text"]').value;
+
+        const type = 'continue';
 
         // Verifica se o token existe no localStorage
         const token = localStorage.getItem('token');
         if (token == '') {
         // Redireciona para a página de erro se não houver token
-        navigate('/Login');
+        navigate('/login');
         return;
         }
 
         try {
             let response = await fetch('https://ligajovemapi-private.onrender.com/api/teacher/chat', {
             method: 'POST', // Specify the HTTP method 
+            body: JSON.stringify({ type, input }),
             headers: {
-                Accept: 'application/json',
+                //Accept: 'application/json',
                 'Content-Type': 'application/json',
                 'authorization': token
-            },
-            
+            }
             });
     
             if (response.ok) {
-            const data = await response.json();  // Atualiza o estado com dados do usuário
+            const data = await response.json(); // Messagem do IA
             } else {
-            setError(response.statusText); // Armazena mensagem de erro
-            localStorage.setItem('token', '');
             navigate('/login');
+            localStorage.setItem('token', '');
             }
         } catch (error) {
-            console.error('Erro ao buscar dados do usuário:', error); // Mensagem genérica de erro
+            console.error('Erro ao buscar dados do usuário:', error);
+            navigate('/login'); // Mensagem genérica de erro
         }
     }
 
