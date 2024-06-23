@@ -38,7 +38,7 @@ function Logins() {
                 // Store successful token in localStorage
                 localStorage.setItem('token', data.token);
                 console.log(localStorage.getItem('token'));
-                navigate('/dash');
+                navigate('/dashboard');
             } catch  (error) {
                 console.error('Erro na requisição:', error);
             }
