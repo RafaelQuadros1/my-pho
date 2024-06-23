@@ -1,38 +1,9 @@
-.loading {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
-}
-
-.loading-icon {
-    width: 15rem;
-    height: 15rem;
-    background: transparent;
-    color: #ff4f38;
-}
-
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-.loading-icon {
-    animation: spin 2s linear infinite;
-}
-
 .bouncing-balls {
    display: flex;
    justify-content: center;
    align-items: center;
    height: 100vh;
-   gap: 10px;
+   gap: 10px; 
   }
 
   .ball {
