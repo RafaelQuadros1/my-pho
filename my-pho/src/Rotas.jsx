@@ -10,8 +10,8 @@ const Rotas = () => {
   <Router>
     <Routes>
       <Route path='/' element={<Home/>}></Route>
-      <Route path='/Logins' element={<Logins/>}></Route>
-      <Route path='/Singups' element={<Singups/>}></Route>
+      <Route path='/Login' element={<Logins/>}></Route>
+      <Route path='/Singup' element={<Singups/>}></Route>
       <Route path='/Dash' element={<Dash/>}></Route>
     </Routes>
   </Router>

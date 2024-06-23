@@ -72,28 +72,32 @@ function Dash() {
     <>
       <Header_dash />
 
+      
       <div className='info'>
         <section className='primal'>
-          <h1>Olá,{userData.name.split(' ').slice(0, 1).join(' ').replace('"', '')}!</h1>
+          <h1>Olá, <span style={{color:"#FF5038"}}>{userData.name.split(' ').slice(0, 1).join(' ').replace('"', '')}!</span></h1>
           <h4>Essa é sua visão geral</h4>
         </section>
       </div>
       <div className='grid_info'>
         <div className='item_info'>
           <p>Próxima aula às:</p>
-          <h3>
+          <h4>
             {
               replaceTime1
             }
             {
               replaceTime2
             }
-          </h3>
+          </h4>
         </div>
         <div className='item_info'>
           <p>Próxima turma:</p>
           <h4>{userData.next_class.class}</h4>
         </div>
+        
+      </div>
+      <div className='item_info_local'>
         <div className='item_info'>
           <p>Próximo local:</p>
           <h4>{userData.next_class.local}</h4>
@@ -101,7 +105,7 @@ function Dash() {
       </div>
       <div className='salas'>
         <section className='primal'>
-          <h1>SALAS</h1>
+          <h1 style={{color:"#FF5038"}}>SALAS</h1>
         </section>
       </div>
       <div className='grid_salas'>
@@ -113,7 +117,7 @@ function Dash() {
               </div>
             ))
           ) : (
-            <div>Nenhuma sala disponível!</div>
+            <div>Nenhuma sala disponível</div>
           )}
       </div>
 

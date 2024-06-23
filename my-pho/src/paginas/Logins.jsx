@@ -11,7 +11,7 @@ function Logins() {
     const [IsLoggedIn, setIsLoggedIn] = useState(false); // State for login status
 
     useEffect(() => {
-        localStorage.setItem('token', '');
+        //localStorage.setItem('token', '');
         console.log(localStorage.getItem('token'));
         
         // Verifica se o token existe no localStorage
