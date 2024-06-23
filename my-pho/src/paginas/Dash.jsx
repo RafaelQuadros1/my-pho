@@ -67,6 +67,10 @@ function Dash() {
         replaceTime1 = userData.next_class.init;
         replaceTime2 = '';
     }
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 5eeb55fb3b5ea405f86d91cd5cd1485591c06735
   return (
     <>
       <Header_dash />
@@ -100,14 +104,21 @@ function Dash() {
       </div>
       <div className='salas'>
         <section className='primal'>
-          <h1>SUAS SALAS</h1>
+          <h1>SALAS</h1>
         </section>
       </div>
       <div className='grid_salas'>
         <div className='item_salas'>
-          <h1>oi</h1>
-          <p>asdasd</p>
+          <h3>Turma {userData.rooms[0].id}</h3>
+          <p>Curso: {userData.rooms[0].course}</p>
         </div>
+<<<<<<< HEAD
+=======
+        <div className='item_salas'>
+            <h3>Turma {userData.rooms[1].id}</h3>
+            <p>Curso: {userData.rooms[1].course}</p>
+        </div>
+>>>>>>> 5eeb55fb3b5ea405f86d91cd5cd1485591c06735
       </div>
       <Chat />
     </>
