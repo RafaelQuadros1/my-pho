@@ -1,0 +1,66 @@
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.loading-icon {
+    width: 15rem;
+    height: 15rem;
+    background: transparent;
+    color: #ff4f38;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-icon {
+    animation: spin 2s linear infinite;
+}
+
+.bouncing-balls {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+   gap: 10px;
+  }
+
+  .ball {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #FF5038;
+    animation: bounce 1s linear infinite;
+  }
+
+  .ball:nth-child(2) {
+    background-color: #FF5038;
+    animation-delay: 0.2s;
+  }
+
+  .ball:nth-child(3) {
+    background-color: #FF5038;
+    animation-delay: 0.4s;
+  }
+
+  @keyframes bounce {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-30px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header_dash from '../components/Header_dash';
+import Uploa from '../components/Uploa';
 import Chat from '../components/Chat';
 import './Dash.css';
 
@@ -56,7 +57,7 @@ function Dash() {
   }
 
   if (!userData) {
-    return <div>Carregando...</div>; // Exibe mensagem de carregamento
+    return <div><Uploa/></div>; // Exibe mensagem de carregamento
   }
 
   var replaceTime1 = userData.next_class.init.split(':').slice(0, 1) + 'h';
@@ -73,7 +74,7 @@ function Dash() {
 
       <div className='info'>
         <section className='primal'>
-          <h1>Olá, {userData.name.split(' ').slice(0, 1).join(' ').replace('"', '')}!</h1>
+          <h1>Olá,{userData.name.split(' ').slice(0, 1).join(' ').replace('"', '')}!</h1>
           <h4>Essa é sua visão geral</h4>
         </section>
       </div>

@@ -27,10 +27,9 @@
   }
   
   .headerlogin button{
-    background-color: transparent;
-    color: #fff;
     border: none;
     outline: none;
+    cursor: pointer;
     padding: 5px 5px;
     border-radius: 5px;
     font-size: 15px;
