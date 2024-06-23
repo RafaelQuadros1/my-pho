@@ -50,27 +50,6 @@ function Dash() {
 
     fetchUserData();
   }, []); // Executa o useEffect apenas na primeira renderização
-  const RoomItem = ({ room }) => {
-    return (
-      <div className="item_salas">
-        <h3>Turma {userData.rooms[0].id}</h3>
-        <p>Curso: {room.course}</p>
-      </div>
-    );
-  };
-  const renderRooms = () => {
-    if (!userData || !userData.rooms) {
-      return null;
-    }
-
-    return (
-      <div className="grid_salas">
-        {userData.rooms.map((room) => (
-          <RoomItem key={userData.rooms[0].id} room={room} />
-        ))}
-      </div>
-    );
-  };
   // Exibe dados do usuário ou mensagem de erro
   if (error) {
     return <div>Ocorreu um erro: {error}</div>;
@@ -100,23 +79,23 @@ function Dash() {
       </div>
       <div className='grid_info'>
         <div className='item_info'>
-          <h3>Próxima aula às:</h3>
-          <p>
+          <p>Próxima aula às:</p>
+          <h3>
             {
               replaceTime1
             }
             {
               replaceTime2
             }
-          </p>
+          </h3>
         </div>
         <div className='item_info'>
-          <h3>Próxima turma:</h3>
-          <p>{userData.next_class.class}</p>
+          <p>Próxima turma:</p>
+          <h4>{userData.next_class.class}</h4>
         </div>
         <div className='item_info'>
-          <h3>Próximo local:</h3>
-          <p>{userData.next_class.local}</p>
+          <p>Próximo local:</p>
+          <h4>{userData.next_class.local}</h4>
         </div>
       </div>
       <div className='salas'>
@@ -125,9 +104,18 @@ function Dash() {
         </section>
       </div>
       <div className='grid_salas'>
-      {renderRooms()}
-      
+      {userData && userData.rooms ? (
+            userData.rooms.map((room) => (
+              <div key={room.id} className="item_salas">
+                <h3>Turma {room.id}</h3>
+                <p>Curso: {room.course}</p>
+              </div>
+            ))
+          ) : (
+            <div>Nenhuma sala disponível</div>
+          )}
       </div>
+
       <Chat />
     </>
   );
