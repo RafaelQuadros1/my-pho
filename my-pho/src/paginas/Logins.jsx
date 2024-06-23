@@ -8,10 +8,8 @@ function Logins() {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [IsLoggedIn, setIsLoggedIn] = useState(false); // State for login status
 
     useEffect(() => {
-        localStorage.setItem('token', '');
         console.log(localStorage.getItem('token'));
         
         // Verifica se o token existe no localStorage
@@ -69,8 +67,7 @@ function Logins() {
                 body: JSON.stringify({ email, password }),
                 headers: {
                     'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                    // 'authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExOSwiaWF0IjoxNzE4OTk1MzcwLCJleHAiOjE3MTg5OTY1NzB9.ck9GWRAdzmUl_UYkbYUdVShE9iB4iZb1iacs72DTHH8',
+                    'Accept': 'application/json'
                 },
             });
 
