@@ -18,7 +18,7 @@ function About() {
         <button onClick={(event) => {
         event.preventDefault();
         navigate('/Logins');
-      }}>Acesar painel <FaArrowRight/></button>
+      }}>Acesar painel </button>
 
       </div>
       <div className='arrow'>

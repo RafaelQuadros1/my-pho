@@ -5,12 +5,13 @@
     font-family: 'Poppins', sans-serif;
   }
   
+  
   .headerlogin{
     position:fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 10px 25px;
+    padding: 10px 20px;
     background-color: #ffffff;
     display: flex;
     align-items: center;
@@ -19,6 +20,7 @@
   }
   
   .headerlogin h1 {
+    margin-right: 40px;
     font-size: 30px;
     flex: 1; /* Torna o título flexível */
     text-align: center; /* Centraliza o título em todas as telas */
@@ -29,7 +31,7 @@
     color: #fff;
     border: none;
     outline: none;
-    padding: 5px 10px;
+    padding: 5px 5px;
     border-radius: 5px;
     font-size: 15px;
     font-weight: 500;
@@ -51,4 +53,4 @@
       font-size: 20px; /* Ajuste o tamanho da fonte para telas médias */
     }
   }
-  
+

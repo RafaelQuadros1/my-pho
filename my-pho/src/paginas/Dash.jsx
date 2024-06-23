@@ -5,6 +5,68 @@ import Chat from '../components/Chat';
 import './Dash.css';
 
 function Dash() {
+    const navigate = useNavigate();
+    const [userData, setUserData] = useState(null); // Armazena dados do usuário
+    const [error, setError] = useState(null); // Armazena mensagem de erro
+
+     useEffect(() => {
+    // Verifica se o token existe no localStorage
+    const token = localStorage.getItem('token');
+
+    //console.log(token);
+
+    if (token == '') {
+      // Redireciona para a página de erro se não houver token
+      navigate('/Logins');
+      return;
+    }
+
+    // Busca informações do usuário a partir do token
+    const fetchUserData = async () => {
+      try {
+        let response = await fetch('https://ligajovemapi-private.onrender.com/api/teacher', {
+          method: 'GET', // Specify the HTTP method 
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'authorization': token
+          },
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          localStorage.setItem('nome', data.name);   
+          setUserData(data);  // Atualiza o estado com dados do usuário
+        } else {
+          setError(response.statusText); // Armazena mensagem de erro
+          localStorage.setItem('token', '');
+          navigate('/Logins'); 
+        }
+      } catch (error) {
+        console.error('Erro ao buscar dados do usuário:', error);
+        setError('Erro ao buscar dados do usuário'); // Mensagem genérica de erro
+      }
+    };
+   
+        fetchUserData();
+    }, []); // Executa o useEffect apenas na primeira renderização
+
+    // Exibe dados do usuário ou mensagem de erro
+    if (error) {
+        return <div>Ocorreu um erro: {error}</div>;
+    }
+
+    if (!userData) {
+        return <div>Carregando...</div>; // Exibe mensagem de carregamento
+    }
+
+    var replaceTime1 = userData.next_class.init.split(':').slice(0, 1)+'h';
+    var replaceTime2 = userData.next_class.init.split(':').slice(0, 2).splice(1,1,'');
+
+    if (userData.next_class.init == "A definir") {
+        replaceTime1 = userData.next_class.init;
+        replaceTime2 = '';
+    }
   
   
   return (
@@ -13,22 +75,29 @@ function Dash() {
       
       <div className='info'>
         <section className='primal'>
-          <h1>Olá, Joaquim!!!</h1>
+          <h1>Olá, {userData.name.split(' ').slice(0, 1).join(' ').replace('"','')}!</h1>
           <h4>Essa é sua visão geral</h4>
         </section>
       </div>
       <div className='grid_info'>
         <div className='item_info'>
-          <h3>Próxima aula as</h3>
-          <p>13:45</p>
+          <h3>Próxima aula às:</h3>
+            <p>
+                {
+                    replaceTime1
+                }
+                {
+                    replaceTime2
+                }
+            </p>
         </div>
         <div className='item_info'>
-          <h3>Próxima turma</h3>
-          <p>45623</p>
+          <h3>Próxima turma:</h3>
+          <p>{userData.next_class.class}</p>
         </div>
         <div className='item_info'>
           <h3>Próximo local:</h3>
-          <p>C.2.4.5</p>
+          <p>{userData.next_class.local}</p>
         </div>
       </div>
       <div className='salas'>
@@ -93,23 +162,6 @@ function Dash() {
           <h1>oi</h1>
           <p>asdasd</p>
         </div>
-        <div className='item_salas'>
-          <h1>oi</h1>
-          <p>asdasd</p>
-        </div>
-        <div className='item_salas'>
-          <h1>oi</h1>
-          <p>asdasd</p>
-        </div>
-        <div className='item_salas'>
-          <h1>oi</h1>
-          <p>asdasd</p>
-        </div>
-        <div className='item_salas'>
-          <h1>oi</h1>
-          <p>asdasd</p>
-        </div>
-        
       </div>
       <Chat />
     </>

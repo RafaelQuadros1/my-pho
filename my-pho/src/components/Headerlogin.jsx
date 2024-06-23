@@ -6,7 +6,7 @@ function Headerlogin() {
   return (
     <div className='headerlogin'>
         <button><FaArrowLeftLong  style={{color: 'black', width: '30px', height: '30px'}}/></button>
-      <h1>Login</h1>
+        <h1>Login</h1>
     </div>
   )
 }
