@@ -68,7 +68,6 @@ function Dash() {
         replaceTime2 = '';
     }
   
-  
   return (
     <>
       <Header_dash />
@@ -102,65 +101,17 @@ function Dash() {
       </div>
       <div className='salas'>
         <section className='primal'>
-          <h1>SUAS SALAS</h1>
+          <h1>SALAS</h1>
         </section>
       </div>
       <div className='grid_salas'>
         <div className='item_salas'>
-          <h1>oi</h1>
-          <p>asdasd</p>
+          <h3>Turma {userData.rooms[0].id}</h3>
+          <p>Curso: {userData.rooms[0].course}</p>
         </div>
         <div className='item_salas'>
-          <h1>oi</h1>
-          <p>asdasd</p>
-        </div>
-        <div className='item_salas'>
-          <h1>oi</h1>
-          <p>asdasd</p>
-        </div>
-        <div className='item_salas'>
-          <h1>oi</h1>
-          <p>asdasd</p>
-        </div>
-        <div className='item_salas'>
-          <h1>oi</h1>
-          <p>asdasd</p>
-        </div>
-        <div className='item_salas'>
-          <h1>oi</h1>
-          <p>asdasd</p>
-        </div>
-        <div className='item_salas'>
-          <h1>oi</h1>
-          <p>asdasd</p>
-        </div>
-        <div className='item_salas'>
-          <h1>oi</h1>
-          <p>asdasd</p>
-        </div>
-        <div className='item_salas'>
-          <h1>oi</h1>
-          <p>asdasd</p>
-        </div>
-        <div className='item_salas'>
-          <h1>oi</h1>
-          <p>asdasd</p>
-        </div>
-        <div className='item_salas'>
-          <h1>oi</h1>
-          <p>asdasd</p>
-        </div>
-        <div className='item_salas'>
-          <h1>oi</h1>
-          <p>asdasd</p>
-        </div>
-        <div className='item_salas'>
-          <h1>oi</h1>
-          <p>asdasd</p>
-        </div>
-        <div className='item_salas'>
-          <h1>oi</h1>
-          <p>asdasd</p>
+            <h3>Turma {userData.rooms[1].id}</h3>
+            <p>Curso: {userData.rooms[1].course}</p>
         </div>
       </div>
       <Chat />
