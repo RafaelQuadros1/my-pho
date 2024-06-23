@@ -13,7 +13,7 @@ function Headerlogin() {
   return (
     <div className='headerlogin'>
       <button onClick={handleBack}><FaArrowLeftLong style={{ color: 'black', width: '30px', height: '30px' }} /></button>
-      <h1>Login</h1>
+      <h1>LOGIN</h1>
     </div>
   );
 }

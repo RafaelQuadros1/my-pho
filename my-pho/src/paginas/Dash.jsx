@@ -28,8 +28,8 @@ function Dash() {
         let response = await fetch('https://ligajovemapi-private.onrender.com/api/teacher', {
           method: 'GET', // Specify the HTTP method 
           headers: {
+            Accept: 'application/json',
             'Content-Type': 'application/json',
-            'Accept': 'application/json',
             'authorization': token
           },
         });

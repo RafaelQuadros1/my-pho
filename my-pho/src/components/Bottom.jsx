@@ -6,7 +6,7 @@ function Bottom() {
         <>
             <div className='bottom'>
                 <hr />
-                <h3>DESMISTIFICANDO DADOS</h3>
+                <h3>BY TEAM PHOENIX</h3>
                 <div className='footer-container'>
                     <div className='footer'>
                     <h5>MINHA CONTA</h5>

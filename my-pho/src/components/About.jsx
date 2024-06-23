@@ -20,6 +20,8 @@ function About() {
         navigate('/Login');
       }}>Acesar painel </button>
 
+        navigate('/login');
+      }}>Acessar painel </button>
       </div>
       <div className='arrow'>
         <a className='jk' href="#title"><RxDoubleArrowDown  style={{width: '30px', height: '30px', }}/></a>
@@ -30,7 +32,7 @@ function About() {
 
       <div className='grid-container'>
         <div className='grid-item'>
-          <h2><LuClipboardSignature style={{ color: '#FF5038' }}/> Organizar datas</h2>
+          <h2><LuClipboardSignature style={{ color: '#FF5038' }}/> Organizar dados</h2>
           <h3>Com o uso do nosso sistema, se torna muito mais fácil organizar as planilhas.</h3>
         </div>
         <div className='grid-item'>
@@ -38,13 +40,10 @@ function About() {
           <h3>Com base nos dados coletados, conseguimos estimar o desenvolvimento.</h3>
         </div>
         <div className='grid-item'>
-          <h2><LuCpu style={{ color: '#FF5038' }}/> Consulta com IA</h2>
-          <h3>Além de plotar dados e as exportar, nossa IA os usa eles de base nas conversas.</h3>
+          <h2><LuCpu style={{ color: '#FF5038' }}/> Consulta com a Ignis</h2>
+          <h3>Além de plotar e exportar dados, nossa IA os usa de base nas conversas.</h3>
         </div>
       </div>
-
-
-
     </>
   )
 }
