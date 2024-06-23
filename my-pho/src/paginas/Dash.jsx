@@ -14,11 +14,10 @@ function Dash() {
     // Verifica se o token existe no localStorage
     const token = localStorage.getItem('token');
 
-    //console.log(token);
 
     if (token == '') {
-      // Redireciona para a página de erro se não houver token
-      navigate('/Logins');
+      // Redireciona para a página de login se não houver token
+      navigate('/login');
       return;
     }
 
@@ -41,13 +40,13 @@ function Dash() {
         } else {
           setError(response.statusText); // Armazena mensagem de erro
           localStorage.setItem('token', '');
-          navigate('/Logins');
+          navigate('/login');
         }
       } catch (error) {
         console.error('Erro ao buscar dados do usuário:', error);
         setError('Erro ao buscar dados do usuário'); // Mensagem genérica de erro
       }
-    };
+    }
 
     fetchUserData();
   }, []); // Executa o useEffect apenas na primeira renderização

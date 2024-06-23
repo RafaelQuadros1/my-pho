@@ -14,20 +14,45 @@ function Chat() {
     };
 
     // Function to handle form submission
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault(); // Prevent default form submission
 
         // Collect input data from the form
         const inputValue = document.querySelector('input[type="text"]').value;
 
-        // Process input data if needed (e.g., validation, formatting)
+        // Verifica se o token existe no localStorage
+        const token = localStorage.getItem('token');
+        if (token == '') {
+        // Redireciona para a página de erro se não houver token
+        navigate('/Logins');
+        return;
+        }
 
-        // Send input data to the appropriate destination (server, API endpoint)
-        // Use fetch API, Axios, or other methods for data submission
-        // Handle success and error scenarios (optional)
-
-        // Optionally, provide feedback to the user (e.g., success message, error message)
-    };
+        try {
+            let response = await fetch('http://localhost:3001/api/teacher/chat', {
+            method: 'POST', // Specify the HTTP method 
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                'authorization': token
+            },
+            body: {
+                "type": "continue",
+                "input": inputValue
+            }
+            });
+    
+            if (response.ok) {
+            const data = await response.json();  // Atualiza o estado com dados do usuário
+            } else {
+            setError(response.statusText); // Armazena mensagem de erro
+            localStorage.setItem('token', '');
+            navigate('/login');
+            }
+        } catch (error) {
+            console.error('Erro ao buscar dados do usuário:', error); // Mensagem genérica de erro
+        }
+    }
 
     return (
         <>
