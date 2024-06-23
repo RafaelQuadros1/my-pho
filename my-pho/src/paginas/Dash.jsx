@@ -5,11 +5,11 @@ import Chat from '../components/Chat';
 import './Dash.css';
 
 function Dash() {
-    const navigate = useNavigate();
-    const [userData, setUserData] = useState(null); // Armazena dados do usuário
-    const [error, setError] = useState(null); // Armazena mensagem de erro
+  const navigate = useNavigate();
+  const [userData, setUserData] = useState(null); // Armazena dados do usuário
+  const [error, setError] = useState(null); // Armazena mensagem de erro
 
-     useEffect(() => {
+  useEffect(() => {
     // Verifica se o token existe no localStorage
     const token = localStorage.getItem('token');
 
@@ -35,63 +35,80 @@ function Dash() {
 
         if (response.ok) {
           const data = await response.json();
-          localStorage.setItem('nome', data.name);   
+          localStorage.setItem('nome', data.name);
           setUserData(data);  // Atualiza o estado com dados do usuário
         } else {
           setError(response.statusText); // Armazena mensagem de erro
           localStorage.setItem('token', '');
-          navigate('/Logins'); 
+          navigate('/Logins');
         }
       } catch (error) {
         console.error('Erro ao buscar dados do usuário:', error);
         setError('Erro ao buscar dados do usuário'); // Mensagem genérica de erro
       }
     };
-   
-        fetchUserData();
-    }, []); // Executa o useEffect apenas na primeira renderização
 
-    // Exibe dados do usuário ou mensagem de erro
-    if (error) {
-        return <div>Ocorreu um erro: {error}</div>;
+    fetchUserData();
+  }, []); // Executa o useEffect apenas na primeira renderização
+  const RoomItem = ({ room }) => {
+    return (
+      <div className="item_salas">
+        <h3>Turma {userData.rooms[0].id}</h3>
+        <p>Curso: {room.course}</p>
+      </div>
+    );
+  };
+  const renderRooms = () => {
+    if (!userData || !userData.rooms) {
+      return null;
     }
 
-    if (!userData) {
-        return <div>Carregando...</div>; // Exibe mensagem de carregamento
-    }
+    return (
+      <div className="grid_salas">
+        {userData.rooms.map((room) => (
+          <RoomItem key={userData.rooms[0].id} room={room} />
+        ))}
+      </div>
+    );
+  };
+  // Exibe dados do usuário ou mensagem de erro
+  if (error) {
+    return <div>Ocorreu um erro: {error}</div>;
+  }
 
-    var replaceTime1 = userData.next_class.init.split(':').slice(0, 1)+'h';
-    var replaceTime2 = userData.next_class.init.split(':').slice(0, 2).splice(1,1,'');
+  if (!userData) {
+    return <div>Carregando...</div>; // Exibe mensagem de carregamento
+  }
 
-    if (userData.next_class.init == "A definir") {
-        replaceTime1 = userData.next_class.init;
-        replaceTime2 = '';
-    }
-<<<<<<< HEAD
-=======
-  
->>>>>>> 5eeb55fb3b5ea405f86d91cd5cd1485591c06735
+  var replaceTime1 = userData.next_class.init.split(':').slice(0, 1) + 'h';
+  var replaceTime2 = userData.next_class.init.split(':').slice(0, 2).splice(1, 1, '');
+
+  if (userData.next_class.init == "A definir") {
+    replaceTime1 = userData.next_class.init;
+    replaceTime2 = '';
+  }
+
   return (
     <>
       <Header_dash />
-      
+
       <div className='info'>
         <section className='primal'>
-          <h1>Olá, {userData.name.split(' ').slice(0, 1).join(' ').replace('"','')}!</h1>
+          <h1>Olá, {userData.name.split(' ').slice(0, 1).join(' ').replace('"', '')}!</h1>
           <h4>Essa é sua visão geral</h4>
         </section>
       </div>
       <div className='grid_info'>
         <div className='item_info'>
           <h3>Próxima aula às:</h3>
-            <p>
-                {
-                    replaceTime1
-                }
-                {
-                    replaceTime2
-                }
-            </p>
+          <p>
+            {
+              replaceTime1
+            }
+            {
+              replaceTime2
+            }
+          </p>
         </div>
         <div className='item_info'>
           <h3>Próxima turma:</h3>
@@ -108,17 +125,8 @@ function Dash() {
         </section>
       </div>
       <div className='grid_salas'>
-        <div className='item_salas'>
-          <h3>Turma {userData.rooms[0].id}</h3>
-          <p>Curso: {userData.rooms[0].course}</p>
-        </div>
-<<<<<<< HEAD
-=======
-        <div className='item_salas'>
-            <h3>Turma {userData.rooms[1].id}</h3>
-            <p>Curso: {userData.rooms[1].course}</p>
-        </div>
->>>>>>> 5eeb55fb3b5ea405f86d91cd5cd1485591c06735
+      {renderRooms()}
+      
       </div>
       <Chat />
     </>
