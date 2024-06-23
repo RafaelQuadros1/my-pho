@@ -84,7 +84,7 @@ function Logins() {
             localStorage.setItem('token', data.token);
             localStorage.setItem('email', JSON.stringify(email));
             localStorage.setItem('password', JSON.stringify(password));
-            navigate('/Dash');
+            navigate('/dashboard');
         } catch (error) {   
             console.error('Erro na requisição:', error);
         }
