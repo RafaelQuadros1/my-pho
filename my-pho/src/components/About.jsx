@@ -17,8 +17,8 @@ function About() {
         <h3>SEU PROGRESSO NA PALMA DA MÃO</h3>
         <button onClick={(event) => {
         event.preventDefault();
-        navigate('/Login');
-      }}>Acesar painel </button>
+        navigate('/login');
+      }}>Acessar painel </button>
       </div>
       <div className='arrow'>
         <a className='jk' href="#title"><RxDoubleArrowDown  style={{width: '30px', height: '30px', }}/></a>
