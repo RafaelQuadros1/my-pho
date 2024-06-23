@@ -41,7 +41,7 @@ function Dash() {
         } else {
           setError(response.statusText); // Armazena mensagem de erro
           localStorage.setItem('token', '');
-          navigate('/Logins');
+          navigate('/Login');
         }
       } catch (error) {
         console.error('Erro ao buscar dados do usuário:', error);
@@ -69,10 +69,8 @@ function Dash() {
   }
 
   return (
-    <>
+    <> 
       <Header_dash />
-
-      
       <div className='info'>
         <section className='primal'>
           <h1>Olá, <span style={{color:"#FF5038"}}>{userData.name.split(' ').slice(0, 1).join(' ').replace('"', '')}!</span></h1>

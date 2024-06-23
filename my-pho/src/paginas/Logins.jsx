@@ -12,7 +12,7 @@ function Logins() {
 
     useEffect(() => {
         //localStorage.setItem('token', '');
-        console.log(localStorage.getItem('token'));
+        //console.log(localStorage.getItem('token'));
         
         // Verifica se o token existe no localStorage
         const token = localStorage.getItem('token');
@@ -23,7 +23,7 @@ function Logins() {
         async function validateToken() {
             try {       
                 const response = await fetch('https://ligajovemapi-private.onrender.com/api/login', {
-                    method: 'PUT',
+                    method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                         'Accept': 'application/json',
@@ -39,7 +39,7 @@ function Logins() {
 
                 // Store successful token in localStorage
                 localStorage.setItem('token', data.token);
-                console.log(localStorage.getItem('token'));
+                //console.log(localStorage.getItem('token'));
                 navigate('/Dash');
             } catch  (error) {
                 console.error('Erro na requisição:', error);

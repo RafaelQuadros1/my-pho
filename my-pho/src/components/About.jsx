@@ -17,7 +17,7 @@ function About() {
         <h3>SEU PROGRESSO NA PALMA DA MÃO</h3>
         <button onClick={(event) => {
         event.preventDefault();
-        navigate('/Logins');
+        navigate('/Login');
       }}>Acesar painel </button>
 
       </div>
