@@ -1,17 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Headerlogin from '../components/Headerlogin'
 import Headersingup from '../components/Headersingup'
 import logo from '../assets/logo.svg'
 import './singup.css'
 
 function Singups() {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch("https://ligajovemapi-private.onrender.com/api/login", {
+      const response = await fetch("https://ligajovemapi-private.onrender.com/api/register", {
         method: 'POST',
         body: JSON.stringify({ email, password }),
         headers: {

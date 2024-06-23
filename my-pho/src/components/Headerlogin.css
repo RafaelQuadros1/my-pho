@@ -21,7 +21,8 @@
   
   .headerlogin h1 {
     margin-right: 40px;
-    font-size: 30px;
+    font-size: 50px;
+    font-weight:bold;
     flex: 1; /* Torna o título flexível */
     text-align: center; /* Centraliza o título em todas as telas */
   }
