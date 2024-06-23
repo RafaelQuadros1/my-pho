@@ -21,9 +21,58 @@
     border: none;
     cursor: pointer;
 }
+
 .floating_element {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.body_chat {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 10px;
+    width: 400px;
+    height: 500px;
+    box-shadow: 0 0 10px #00000048;
+    padding: 20px;
+}
+
+.inputs {
+    position: fixed;
+    bottom: 20px;
+    left: 50px;
+    padding: 5px 10px;
+    border-radius: 0 10px 10px 0;
+}
+
+.input_from input {
+   padding: 1px 10px;
+   margin-right: 10px;
+   background: ta;
+   border: none;
+   outline: none;
+   border-bottom: rgb(0, 0, 0) 1px solid;
+   
+}
+
+.input_from button {
+    padding: 1px 5px;
+    border: #00000036 1px solid;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.men {
+    height: 400px;
+    overflow-x: hidden;
+    scrollbar-color: #00000036 #ffffff ;
+    scrollbar-width: thin;
+    
+}
+
+.igns {
+    
 }
