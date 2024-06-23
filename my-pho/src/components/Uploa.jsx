@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Uploa.css';
 
 function Uploa() {
 
-
     return (
+        <>
         <div className="bouncing-balls">
-            <div class="ball"></div>
-            <div class="ball"></div>
-            <div class="ball"></div>
+            <span className="ball"></span>
+            <span className="ball"></span>
+            <span className="ball"></span>
         </div>
+        </>
     );
 }
 

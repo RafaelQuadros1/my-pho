@@ -68,10 +68,8 @@ function Dash() {
   }
 
   return (
-    <>
+    <> 
       <Header_dash />
-
-      
       <div className='info'>
         <section className='primal'>
           <h1>Olá, <span style={{color:"#FF5038"}}>{userData.name.split(' ').slice(0, 1).join(' ').replace('"', '')}!</span></h1>
