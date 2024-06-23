@@ -74,5 +74,20 @@
 }
 
 .igns {
-    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 20px;
+    word-break: break-all;
+    width: 350px;
 }
+
+.user {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 20px;
+    word-break: break-all;
+    width: 350px;
+}
+
