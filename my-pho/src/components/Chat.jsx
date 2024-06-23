@@ -24,22 +24,19 @@ function Chat() {
         const token = localStorage.getItem('token');
         if (token == '') {
         // Redireciona para a página de erro se não houver token
-        navigate('/Logins');
+        navigate('/Login');
         return;
         }
 
         try {
-            let response = await fetch('http://localhost:3001/api/teacher/chat', {
+            let response = await fetch('https://ligajovemapi-private.onrender.com/api/teacher/chat', {
             method: 'POST', // Specify the HTTP method 
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
                 'authorization': token
             },
-            body: {
-                "type": "continue",
-                "input": inputValue
-            }
+            
             });
     
             if (response.ok) {
