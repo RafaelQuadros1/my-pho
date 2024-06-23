@@ -113,7 +113,7 @@ function Dash() {
               </div>
             ))
           ) : (
-            <div>Nenhuma sala disponível</div>
+            <div>Nenhuma sala disponível!</div>
           )}
       </div>
 
