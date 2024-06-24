@@ -48,10 +48,6 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Montserrat', 'Helvetica Neue', sans-serif;
-    line-height: 1.5;
-    letter-spacing: 0.01em;
 }
   
 .chat {
@@ -88,7 +84,7 @@
     width: 100%;
     height: 100%;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
-    padding: 20px;
+    padding: 10px;
     overflow: hidden;
 }
   
@@ -171,7 +167,7 @@
 }
   
 .text {
-    margin-bottom: 1.5rem;
+    margin: 1rem;
     color: #333;
 }
   

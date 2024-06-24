@@ -4,7 +4,7 @@ import { IoChatbubblesOutline } from "react-icons/io5";
 import { IoIosArrowForward } from "react-icons/io";
 import { FaUserCircle } from "react-icons/fa";
 import { BiAtom } from "react-icons/bi";
-import Markdown from 'react-markdown';
+import Markdown from 'react-markdown';  
 
 
 import './Chat.css';
@@ -14,6 +14,7 @@ function Chat({ userName }) {
   const [isFloatingElementOpen, setIsFloatingElementOpen] = useState(false);
   const [messages, setMessages] = useState([]); // State to store messages
   const messagesEndRef = useRef(null); // Ref to track the end of messages
+  const [type, setType] = useState('new');
 
   const toggleFloatingElement = () => {
     setIsFloatingElementOpen(!isFloatingElementOpen);
@@ -38,7 +39,7 @@ function Chat({ userName }) {
 
   useEffect(() => {
     scrollToBottom(); // Scroll to the bottom when messages change
-  }, [messages]);
+  }, []);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -53,8 +54,6 @@ function Chat({ userName }) {
     if (!inputValue) {
       return; // Prevent sending empty messages
     }
-
-    const type = 'continue';
 
     const token = localStorage.getItem('token');
     if (token === '') {
@@ -72,7 +71,7 @@ function Chat({ userName }) {
     try {
       let response = await fetch('https://ligajovemapi-private.onrender.com/api/teacher/chat', {
         method: 'POST',
-        body: JSON.stringify({ type, input: inputValue }),
+        body: JSON.stringify({ type: type, input: inputValue }),
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
@@ -82,6 +81,7 @@ function Chat({ userName }) {
 
       if (response.ok) {
         const data = await response.json();
+        setType('continue');
         setMessages(prevMessages => [
           ...prevMessages,
           { text: data, isUser: false }
