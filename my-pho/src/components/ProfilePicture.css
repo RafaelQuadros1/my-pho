@@ -6,9 +6,6 @@
   padding: 5px 10px;
 }
 
-.profile-button:hover {
-  background-color: #f7f7f7;
-}
 
 .profile-picture {
   position: relative;
@@ -16,7 +13,7 @@
 
 .popup {
   position: absolute;
-  right: -50%;
+  right: -41%;
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
