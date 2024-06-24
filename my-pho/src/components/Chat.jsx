@@ -4,6 +4,7 @@ import { IoChatbubblesOutline } from "react-icons/io5";
 import { IoIosArrowForward } from "react-icons/io";
 import { FaUserCircle } from "react-icons/fa";
 import { BiAtom } from "react-icons/bi";
+import Markdown from 'react-markdown';
 
 
 import './Chat.css';
@@ -129,7 +130,7 @@ const FloatingElementComponent = ({ userName, messages, onSubmit, messagesEndRef
                   <BiAtom style={{ color: 'black', width: '40px', height: '40px' }} />
                   <p>Ignis</p>
                 </div>
-                <div className='text'>{message.text ? message.text : 'Mensagem não disponível'}</div>
+                <div className='text'><Markdown>{message.text ? message.text : 'Mensagem não disponível'}</Markdown></div>
               </>
             )}
           </div>
