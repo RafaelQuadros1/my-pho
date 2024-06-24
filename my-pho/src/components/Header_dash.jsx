@@ -1,9 +1,10 @@
 import React from 'react';
 import { RiMenu2Line } from "react-icons/ri";
-import logo from '../assets/logo.svg'
+import logo from '../assets/logo.svg';
+import Profile from '../components/ProfilePicture';
 import './Header_dash.css'
 
-function Header_dash() {
+function Header_dash({ userName, userEmail, userType }) {
   return (
     <>
       <header className='Header_dash'>
@@ -12,15 +13,12 @@ function Header_dash() {
         </section>
         <section><img src={logo} style={{ width: '30px', height: '30px' }} /></section>
         <section className='conta'>
-          <button>perf</button>
+        <Profile userName={userName} userEmail={userEmail} userType={userType}/>
         </section>
       </header>
       
     </>
   )
 }
-
-
-
 
 export default Header_dash

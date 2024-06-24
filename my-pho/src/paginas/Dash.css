@@ -1,100 +1,191 @@
 * {
+    box-sizing: border-box;
+    font-family: 'Montserrat', 'Helvetica Neue', sans-serif;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+}
+
+body {
+    background-color: #f9f9f9;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    background-color: rgba(255, 255, 255, 0.596);
+}
+
+.fadeIn {
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.primal {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    color: #333;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .info {
+    color: #333;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
     width: 100%;
-    font-size: 150;
-    margin-top: 10rem;
+    margin-top: 8rem;
+    margin-bottom: 3.5rem;
     display: flex;
     text-align: center;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 }
+
 .grid_info {
     display: grid;
     margin-top: 1.5rem;
     grid-template-columns: repeat(2, 1fr);
-    padding: 10px;
-    gap: 10px;
+    padding: 0 20px;
+    gap: 20px;
 }
 
 .item_info {
-    box-shadow: 0 0 5px  #00000048;
-    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
-    padding: 10px;
+    padding: 20px;
+    background-color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.item_info:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.item_info h3 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #333;
+}
+
+.item_info p {
+    font-size: 18px;
+    color: #666;
 }
 
 .item_info_local {
     grid-template-columns: repeat(3, 1fr);
-    padding: 10px;
-    gap: 10px;
-}
-
-.item_info h3 {
-    font-size: 20px;
-    font-weight: 300; 
+    padding: 20px;
+    gap: 20px;
 }
 
 .salas {
     width: 100%;
-    margin-top: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    margin-top: 3rem;
+}
+
+.salas h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #FF5038;
+    text-align: center;
+}
+
+.semSalas {
+    margin: 0 auto;
+    text-align: center;
+    padding: 60px;
+    color: #666;
 }
 
 .grid_salas {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    padding: 10px;
-    gap: 10px;
+    padding: 0 20px;
+    gap: 20px;
 }
 
 .item_salas {
-    box-shadow: 0 0 5px  #00000048;
-    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
-    padding: 10px;
+    padding: 20px;
+    background-color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.item_salas:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.item_salas h3 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #333;
+}
+
+.item_salas p {
+    font-size: 18px;
+    color: #666;
+}
+
+.highlight {
+    color: #FF5038;
+}
 
 @media (max-width: 768px) {
     .grid_info {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
     }
     .item_info_local {
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: 1fr;
     }
-    .grid_salas{
-        grid-template-columns: repeat(2, 1fr);
+    .grid_salas {
+        grid-template-columns: 1fr;
     }
 }
 
-.Header_dash{
-    position:fixed;
+.Header_dash {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     padding: 10px 25px;
     background-color: #ffffff;
-    box-shadow: 0 1px  10px #0000003d;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.24);
     display: flex;
     align-items: center;
     justify-content: space-between;
     z-index: 100;
+    animation: slideDown 0.5s ease;
 }
 
-.menu button{
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.menu button {
     background-color: transparent;
     color: #fff;
     border: none;
@@ -105,7 +196,8 @@
     font-weight: 500;
     cursor: pointer;
 }
-.logins button{
+
+.logins button {
     background-color: transparent;
     color: #fff;
     border: none;

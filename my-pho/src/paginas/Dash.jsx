@@ -7,25 +7,21 @@ import './Dash.css';
 
 function Dash() {
   const navigate = useNavigate();
-  const [userData, setUserData] = useState(null); // Armazena dados do usuário
-  const [error, setError] = useState(null); // Armazena mensagem de erro
+  const [userData, setUserData] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Verifica se o token existe no localStorage
     const token = localStorage.getItem('token');
 
-
-    if (token == '') {
-      // Redireciona para a página de login se não houver token
+    if (!token) {
       navigate('/login');
       return;
     }
 
-    // Busca informações do usuário a partir do token
     const fetchUserData = async () => {
       try {
         let response = await fetch('https://ligajovemapi-private.onrender.com/api/teacher', {
-          method: 'GET', // Specify the HTTP method 
+          method: 'GET',
           headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json',
@@ -36,63 +32,68 @@ function Dash() {
         if (response.ok) {
           const data = await response.json();
           localStorage.setItem('nome', data.name);
-          setUserData(data);  // Atualiza o estado com dados do usuário
+          setUserData(data);
         } else {
-          setError(response.statusText); // Armazena mensagem de erro
+          setError(response.statusText);
           localStorage.setItem('token', '');
           navigate('/login');
         }
       } catch (error) {
+        localStorage.setItem('token', '');
         console.error('Erro ao buscar dados do usuário:', error);
-        setError('Erro ao buscar dados do usuário'); // Mensagem genérica de erro
+        setError('Erro ao buscar dados do usuário');
+        navigate('/');
       }
-    }
+    };
 
     fetchUserData();
-  }, []); // Executa o useEffect apenas na primeira renderização
-  // Exibe dados do usuário ou mensagem de erro
+  }, [navigate]);
+
   if (error) {
     return <div>Ocorreu um erro: {error}</div>;
   }
 
   if (!userData) {
-    return <div><Uploa/></div>; // Exibe mensagem de carregamento
+    return <div><Uploa/></div>;
+  }
+
+  if (userData.mode === 'M') {
+    userData.mode = 'Professor - Mensalista';
+  } else if (userData.mode === 'H') {
+    userData.mode = 'Professor - Horista';
+  } else {
+    userData.mode = 'Administrador';
   }
 
   var replaceTime1 = userData.next_class.init.split(':').slice(0, 1) + 'h';
   var replaceTime2 = userData.next_class.init.split(':').slice(0, 2).splice(1, 1, '');
 
-  if (userData.next_class.init == "A definir") {
+  if (userData.next_class.init === "A definir") {
     replaceTime1 = userData.next_class.init;
     replaceTime2 = '';
   }
 
   return (
-    <> 
-      <Header_dash />
-      <div className='info'>
+    <>
+      <Header_dash userName={userData.name} userEmail={userData.email} userType={userData.mode} />
+      <div className='info fadeIn'>
         <section className='primal'>
-          <h1>Olá, <span style={{color:"#FF5038"}}>{userData.name.split(' ').slice(0, 1).join(' ').replace('"', '')}!</span></h1>
-          <h4>Essa é sua visão geral</h4>
+          <h1>Olá, <span className='highlight'>{userData.name.split(' ')[0].toUpperCase()}!</span></h1>
+          <h3>Essa é sua visão geral:</h3>
         </section>
       </div>
       <div className='grid_info'>
         <div className='item_info'>
           <p>Próxima aula às:</p>
-          <h4>
-            {
-              replaceTime1
-            }
-            {
-              replaceTime2
-            }
-          </h4>
+          <h3>
+            {replaceTime1}
+            {replaceTime2}
+          </h3>
         </div>
         <div className='item_info'>
           <p>Próxima turma:</p>
-          <h4>{userData.next_class.class}</h4>
+          <h3>{userData.next_class.class}</h3>
         </div>
-        
       </div>
       <div className='item_info_local'>
         <div className='item_info'>
@@ -102,26 +103,24 @@ function Dash() {
       </div>
       <div className='salas'>
         <section className='primal'>
-          <h1 style={{color:"#FF5038"}}>SALAS</h1>
+          <h1 className='highlight'>SALAS</h1>
         </section>
       </div>
       <div className='grid_salas'>
-      {userData && userData.rooms ? (
-            userData.rooms.map((room) => (
-              <div key={room.id} className="item_salas">
-                <h3>Turma {room.id}</h3>
-                <p>Curso: {room.course}</p>
-              </div>
-            ))
-          ) : (
-            <div>Nenhuma sala disponível</div>
-          )}
+        {userData && userData.rooms[0] ? (
+          userData.rooms.map((room) => (
+            <div key={room.id} className="item_salas">
+              <h3>Turma {room.id}</h3>
+              <p>Curso: {room.course}</p>
+            </div>
+          ))
+        ) : (
+          <h3 className='semSalas'>Nenhuma sala disponível</h3>
+        )}
       </div>
-
-      <Chat />
+      <Chat userName={userData.name} />
     </>
   );
 }
-
 
 export default Dash;

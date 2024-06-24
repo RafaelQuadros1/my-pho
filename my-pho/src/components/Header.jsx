@@ -1,6 +1,5 @@
 import React from 'react'
 import logo from '../assets/logo.svg'
-import { RiMenu2Line } from "react-icons/ri";
 import { useNavigate } from 'react-router-dom';
 import './Header.css'
 

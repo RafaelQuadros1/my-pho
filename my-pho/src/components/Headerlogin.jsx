@@ -12,7 +12,7 @@ function Headerlogin() {
 
   return (
     <div className='headerlogin'>
-      <button onClick={handleBack}><FaArrowLeftLong style={{ color: 'black', width: '30px', height: '30px' }} /></button>
+      <button onClick={handleBack}><FaArrowLeftLong className='voltar' style={{ color: 'black', width: '30px', height: '30px' }} /></button>
       <h1>LOGIN</h1>
     </div>
   );

@@ -1,0 +1,77 @@
+.profile-button {
+  background-color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.profile-button:hover {
+  background-color: #f7f7f7;
+}
+
+.profile-picture {
+  position: relative;
+}
+
+.popup {
+  position: absolute;
+  right: 0%;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
+  z-index: 1;
+}
+
+.popup-content {
+  font-family: 'Montserrat', 'Helvetica Neue', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+  color: #333;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.close-icon {
+  display: block;
+  margin-top: 10px;
+  cursor: pointer;
+  color: #999;
+}
+
+.close-icon:hover {
+  color: #666;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+.fadeUpIn {
+  animation: fadeIn 0.5s forwards;
+}
+
+.fadeOut {
+  animation: fadeOut 0.5s forwards;
+}

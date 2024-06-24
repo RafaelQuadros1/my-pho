@@ -10,39 +10,6 @@ function Logins() {
     const [password, setPassword] = useState('');
 
     useEffect(() => {
-        console.log(localStorage.getItem('token'));
-        
-        // Verifica se o token existe no localStorage
-        const token = localStorage.getItem('token');
-        if (token != '') {
-            validateToken();
-        }
-
-        async function validateToken() {
-            try {       
-                const response = await fetch('https://ligajovemapi-private.onrender.com/api/login', {
-                    method: 'PUT',
-                    headers: {
-                        Accept: 'application/json',
-                        'Content-Type': 'application/json',
-                        'authorization': token
-                    },
-                });
-
-                if (!response.ok) {
-                    return Error(response.status);
-                }
-
-                const data = await response.json();
-
-                // Store successful token in localStorage
-                localStorage.setItem('token', data.token);
-                console.log(localStorage.getItem('token'));
-                navigate('/dashboard');
-            } catch  (error) {
-                console.error('Erro na requisição:', error);
-            }
-        }
 
         // Check for existing data in localStorage on component mount
         /*const storedData = localStorage.getItem('userData');
@@ -73,7 +40,6 @@ function Logins() {
 
             if (!response.ok) {
                 throw new Error(`Dados Invalidos: ${response.status}`);
-
             }
 
             const data = await response.json();
@@ -83,7 +49,9 @@ function Logins() {
             localStorage.setItem('password', JSON.stringify(password));
             navigate('/dashboard');
         } catch (error) {   
-            console.error('Erro na requisição:', error);
+            localStorage.setItem('token', '');
+            console.error('Erro ao buscar dados do usuário:', error);
+            setError('Erro ao buscar dados do usuário');
         }
     };
 
