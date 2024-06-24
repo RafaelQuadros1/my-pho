@@ -67,11 +67,10 @@ const ProfilePicture = ({ userName, userEmail, userType }) => {
       {isOpen && (
         <div className={`popup ${isClosing ? 'fadeOut' : 'fadeUpIn'}`}>
           <div className="popup-content">
-            <h2>Seu perfil</h2>
-            <p>{userName}</p>
+            <h3>{userName}</h3>
             <p>{userEmail}</p>
             <p>{userType}</p>
-            <IoExitOutline className="close-icon" onClick={logout} style={{ width:'33px', height:'33px'}}/>
+            <IoExitOutline className="close-icon" onClick={logout} style={{ width:'32px', height:'32px'}}/>
           </div>
         </div>
       )}

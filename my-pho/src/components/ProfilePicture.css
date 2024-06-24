@@ -32,6 +32,10 @@
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
 
+.popup-content p {
+  font-size: 14px;
+}
+
 .close-icon {
   display: block;
   margin-top: 10px;
