@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
 import './ProfilePicture.css';
-import { FaUser, FaTimes } from 'react-icons/fa';
+import { FaUser } from 'react-icons/fa';
 import { IoExitOutline } from "react-icons/io5";
 import { useNavigate } from 'react-router-dom';
 
-const ProfilePicture = ({ userName, userEmail, userType }) => {
+const ProfilePicture = ({ userName, userEmail, userType, setLoading }) => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
 
   const logout = async () => {
+    setLoading(true);
     const token = localStorage.getItem('token');
 
     if (!token) {
-      navigate('/login');
+      setLoading(false);
+      navigate('/');
       return;
     }
 
@@ -30,6 +32,7 @@ const ProfilePicture = ({ userName, userEmail, userType }) => {
 
         if (response.ok) {
             localStorage.setItem('token', '');
+            setLoading(false);
             navigate('/');
         } else {
             setError(response.statusText);

@@ -14,13 +14,13 @@
     transition: transform 0.3s ease, opacity 0.3s ease;
     pointer-events: none;
 }
-  
+
 .floating_element.open {
     transform: translate(-50%, -50%) scale(1);
     opacity: 1;
     pointer-events: auto;
 }
-  
+
 /* Animação para as mensagens */
 @keyframes fadeInUp {
     from {
@@ -32,7 +32,7 @@
         transform: translateY(0);
     }
 }
-  
+
 .message {
     animation: fadeInUp 0.5s ease forwards;
     border: 1px solid #e0e0e0;
@@ -43,19 +43,30 @@
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     word-wrap: break-word;
 }
-  
+
+.welcome_message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+    user-select: none;
+}
+
 /* Restante do CSS */
 * {
     margin: 0;
     padding: 0;
 }
-  
+
 .chat {
     padding: 5px;
     align-items: center;
     justify-content: flex-end;
 }
-  
+
 .chat button {
     position: fixed;
     bottom: 20px;
@@ -74,8 +85,6 @@
     transition: background-color 0.3s ease;
 }
 
-
-  
 .body_chat {
     display: flex;
     flex-direction: column;
@@ -84,10 +93,11 @@
     width: 100%;
     height: 100%;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
-    padding: 10px;
+    padding: 20px;
     overflow: hidden;
+    position: relative; /* Add position relative for absolute positioning of welcome message */
 }
-  
+
 .inputs {
     position: absolute;
     bottom: 0;
@@ -99,12 +109,12 @@
 
     border-top: 1px solid #ddd;
 }
-  
+
 .input_from {
     display: flex;
     flex: 1;
 }
-  
+
 .input_from input {
     flex: 1;
     padding: 10px;
@@ -116,7 +126,7 @@
     background-color: #fff;
     border-right: none; /* Remove a borda direita */
 }
-  
+
 .input_from button {
     padding: 0 20px;
     border: 1px solid #ddd;
@@ -132,7 +142,7 @@
 .input_from button:hover {
     background-color: #e04632; /* Cor ao passar o mouse */
 }
-  
+
 .men {
     height: calc(100% - 60px); /* Ajusta a altura para não sobrepor a barra de input */
     overflow-x: hidden;
@@ -140,7 +150,7 @@
     scrollbar-width: thin;
     padding-right: 10px; /* Adiciona espaço para a barra de rolagem */
 }
-  
+
 .igns {
     display: flex;
     flex-direction: column;
@@ -149,28 +159,28 @@
     word-break: break-all;
     width: 350px;
 }
-  
+
 .grid_user {
     display: flex;
     align-items: center;
     margin-bottom: 10px; /* Align items vertically in the center */
 }
-  
+
 .grid_user img {
     margin-right: 20px; /* Optional: Adds space between the image and the name */
 }
-  
+
 .grid_user p {
     padding: 10px;
     font-weight: 600;
     color: #333;
 }
-  
+
 .text {
     margin: 1rem;
     color: #333;
 }
-  
+
 .user {
     display: flex;
     flex-direction: column;
@@ -179,14 +189,19 @@
     word-break: break-all;
     width: 350px;
 }
-  
+
 .input_from button {
     align-items: center;
     justify-content: center;
     text-align: center;
 }
-  
+
 .arrow {
     margin-bottom: -10%;
 }
 
+@media (min-width: 768px) {
+    .floating_element {
+        margin-top: 30px;
+    }
+}

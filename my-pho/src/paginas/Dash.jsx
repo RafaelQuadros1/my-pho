@@ -9,11 +9,12 @@ function Dash() {
   const navigate = useNavigate();
   const [userData, setUserData] = useState(null);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
 
-    if (!token) {
+    if (token == '') {
       navigate('/login');
       return;
     }
@@ -53,7 +54,7 @@ function Dash() {
     return <div>Ocorreu um erro: {error}</div>;
   }
 
-  if (!userData) {
+  if (!userData || loading) {
     return <div><Uploa/></div>;
   }
 
@@ -75,11 +76,11 @@ function Dash() {
 
   return (
     <>
-      <Header_dash userName={userData.name} userEmail={userData.email} userType={userData.mode} />
+      <Header_dash userName={userData.name} userEmail={userData.email} userType={userData.mode} setLoading={setLoading}/>
       <div className='info fadeIn'>
         <section className='primal'>
           <h1>Olá, <span className='highlight'>{userData.name.split(' ')[0].toUpperCase()}!</span></h1>
-          <h3>Essa é sua visão geral:</h3>
+          <h4 className='.general-overview'>Sua visão geral:</h4>
         </section>
       </div>
       <div className='grid_info'>
@@ -98,7 +99,7 @@ function Dash() {
       <div className='item_info_local'>
         <div className='item_info'>
           <p>Próximo local:</p>
-          <h4>{userData.next_class.local}</h4>
+          <h3>{userData.next_class.local}</h3>
         </div>
       </div>
       <div className='salas'>

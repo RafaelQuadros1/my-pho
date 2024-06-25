@@ -4,7 +4,7 @@ import logo from '../assets/logo.svg';
 import Profile from '../components/ProfilePicture';
 import './Header_dash.css'
 
-function Header_dash({ userName, userEmail, userType }) {
+function Header_dash({ userName, userEmail, userType, setLoading }) {
   return (
     <>
       <header className='Header_dash'>
@@ -13,7 +13,7 @@ function Header_dash({ userName, userEmail, userType }) {
         </section>
         <section><img src={logo} style={{ width: '30px', height: '30px' }} /></section>
         <section className='conta'>
-        <Profile userName={userName} userEmail={userEmail} userType={userType}/>
+        <Profile userName={userName} userEmail={userEmail} userType={userType} setLoading={setLoading}/>
         </section>
       </header>
       

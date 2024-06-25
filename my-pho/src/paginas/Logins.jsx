@@ -2,30 +2,26 @@ import React, { useState, useEffect } from 'react';
 import Headerlogin from '../components/Headerlogin';
 import { useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.svg';
+import Uploa from '../components/Uploa';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import './login.css';
 
 function Logins() {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null); // Estado para mensagem de erro
+    const [showPassword, setShowPassword] = useState(false);
 
     useEffect(() => {
-
-        // Check for existing data in localStorage on component mount
-        /*const storedData = localStorage.getItem('userData');
-        if (storedData) {
-            try {
-                const parsedData = JSON.parse(storedData);
-                setIsLoggedIn(true); // Set logged in if data exists
-            } catch (error) {
-                console.error('Error parsing stored data:', error);
-                localStorage.removeItem('userData'); // Remove corrupted data
-            }
-        }*/
-
-    }, []); // Empty dependency array to run only once on mount
+        if (localStorage.getItem('token') !== '') {
+            navigate('/dashboard');
+        }
+    }, [navigate]);
 
     const handleSubmit = async (event) => {
+        setLoading(true);
         event.preventDefault();
 
         try {
@@ -39,21 +35,32 @@ function Logins() {
             });
 
             if (!response.ok) {
-                throw new Error(`Dados Invalidos: ${response.status}`);
+                if (response.status === 401) {
+                    setError('Dados inválidos. Verifique seu email e senha.');
+                } else {
+                    setError(`Erro: ${response.statusText}`);
+                }
+                setLoading(false);
+                return;
             }
 
             const data = await response.json();
-            // Store successful login data in localStorage
             localStorage.setItem('token', data.token);
-            localStorage.setItem('email', JSON.stringify(email));
-            localStorage.setItem('password', JSON.stringify(password));
+            setEmail('');
+            setPassword('');
+            setLoading(false);
             navigate('/dashboard');
-        } catch (error) {   
+        } catch (error) {
             localStorage.setItem('token', '');
             console.error('Erro ao buscar dados do usuário:', error);
             setError('Erro ao buscar dados do usuário');
+            setLoading(false);
         }
     };
+
+    if (loading) {
+        return <div><Uploa/></div>;
+    }
 
     return (
         <>
@@ -63,6 +70,7 @@ function Logins() {
             </section>
             <div className='login_oi'>
                 <form className='form' onSubmit={handleSubmit}>
+                    {error && <p className='error'>{error}</p>} {/* Exibe a mensagem de erro */}
                     <input
                         required
                         placeholder="Digite seu email"
@@ -71,16 +79,17 @@ function Logins() {
                     />
                     <input
                         required
-                        type="password"
-                        placeholder="Digite sua password"
+                        type={showPassword ? 'text' : 'password'}
+                        placeholder="Digite sua senha"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
+                    <span className="eye-icon" onClick={() => setShowPassword(!showPassword)}>
+                        {showPassword ? <FaEye /> : <FaEyeSlash />}
+                    </span>
                     <button type='submit'>Continuar</button>
-                    <p>Não tem cadastro?<a href="/"> Registre-se</a></p>
+                    <p className='aviso'>O registro é realizado por sua instituição!</p>
                 </form>
-
-
             </div>
         </>
     );

@@ -6,6 +6,7 @@ import './singup.css'
 
 function Singups() {
   const [name, setName] = useState('');
+  const [mode, setMode] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -14,7 +15,7 @@ function Singups() {
     try {
       const response = await fetch("https://ligajovemapi-private.onrender.com/api/register", {
         method: 'POST',
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ name, mode, email, password }),
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json'

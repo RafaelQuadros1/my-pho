@@ -9,16 +9,14 @@
 .login_oi {
     display: flex;
     justify-content: center;
-    
-    
     height: 30vh;
     width: 100%;
 }
 
-.login_oi form {
+.form {
     display: flex;
     flex-direction: column;
-    align-items:center;
+    align-items: center;
     justify-content: center;
 }
 
@@ -27,14 +25,14 @@
     margin: 10px;
     margin-top: 15px;
     border: #fff 0.5px solid;
-    border-bottom: #000000 1px solid;
+    border-bottom: #FF5038 1px solid;
     outline: none;
 }
 
 .form button {
     background-color: #FF5038;
     color: #fff;
-    border-radius:30px;
+    border-radius: 30px;
     border: none;
     padding: 5px 60px;
     font-size: 30px;
@@ -45,11 +43,22 @@
 
 .form p {
     margin-top: 12px;
-    font-family: 'Poppins', sans-serif;
-}
-.form a {
-    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    justify-content: center;
+    text-align: center;
     text-decoration: none;
-    color: #FF5038;
-    font-weight: 500;
+    font-weight: 100;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.eye-icon {
+    position:relative;
+    margin-top: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
 }

@@ -4,8 +4,7 @@ import { IoChatbubblesOutline } from "react-icons/io5";
 import { IoIosArrowForward } from "react-icons/io";
 import { FaUserCircle } from "react-icons/fa";
 import { BiAtom } from "react-icons/bi";
-import Markdown from 'react-markdown';  
-
+import Markdown from 'react-markdown';
 
 import './Chat.css';
 
@@ -13,6 +12,7 @@ function Chat({ userName }) {
   const navigate = useNavigate();
   const [isFloatingElementOpen, setIsFloatingElementOpen] = useState(false);
   const [messages, setMessages] = useState([]); // State to store messages
+  const [showWelcomeMessage, setShowWelcomeMessage] = useState(true); // State to control welcome message
   const messagesEndRef = useRef(null); // Ref to track the end of messages
   const [type, setType] = useState('new');
 
@@ -39,7 +39,7 @@ function Chat({ userName }) {
 
   useEffect(() => {
     scrollToBottom(); // Scroll to the bottom when messages change
-  }, []);
+  }, [messages]); // Ensure this effect runs whenever the messages array changes
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -67,6 +67,9 @@ function Chat({ userName }) {
     ]);
 
     inputElement.value = '';
+    setShowWelcomeMessage(false); // Hide the welcome message
+
+    scrollToBottom(); // Scroll to the bottom after adding the user's message
 
     try {
       let response = await fetch('https://ligajovemapi-private.onrender.com/api/teacher/chat', {
@@ -86,6 +89,7 @@ function Chat({ userName }) {
           ...prevMessages,
           { text: data, isUser: false }
         ]);
+        scrollToBottom(); // Scroll to the bottom after adding the response
       } else {
         navigate('/login');
         localStorage.setItem('token', '');
@@ -104,15 +108,22 @@ function Chat({ userName }) {
         </button>
       </div>
       <div className={`floating_element ${isFloatingElementOpen ? 'open' : ''}`}>
-        <FloatingElementComponent userName={userName} messages={messages} onSubmit={handleSubmit} messagesEndRef={messagesEndRef} />
+        <FloatingElementComponent 
+          userName={userName} 
+          messages={messages} 
+          onSubmit={handleSubmit} 
+          messagesEndRef={messagesEndRef} 
+          showWelcomeMessage={showWelcomeMessage} 
+        />
       </div>
     </>
   );
 }
 
-const FloatingElementComponent = ({ userName, messages, onSubmit, messagesEndRef }) => {
+const FloatingElementComponent = ({ userName, messages, onSubmit, messagesEndRef, showWelcomeMessage }) => {
   return (
     <div className="body_chat">
+      {showWelcomeMessage && <div className="welcome_message">Diga "Olá" para a Ignis</div>}
       <div className='men'>
         {messages.map((message, index) => (
           <div key={index} className="message">
