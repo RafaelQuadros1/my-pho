@@ -30,7 +30,7 @@ const ProfilePicture = ({ userName, userEmail, userType, setLoading }) => {
           },
         });
 
-        if (response.ok) {
+        if (response.ok || response.status == 401) {
             localStorage.setItem('token', '');
             setLoading(false);
             navigate('/');
