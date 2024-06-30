@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { FaArrowRight } from "react-icons/fa";
 import { RxDoubleArrowDown } from "react-icons/rx";
 import { LuClipboardSignature } from "react-icons/lu";
 import { HiOutlineCubeTransparent } from "react-icons/hi";
