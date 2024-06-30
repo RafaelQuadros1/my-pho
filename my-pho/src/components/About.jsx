@@ -27,7 +27,7 @@ function About() {
 
     async function validateToken() {
         try {       
-            const response = await fetch('https://ligajovemapi-private.onrender.com/api/login', {
+            const response = await fetch('https://phoenixapi.criarsite.online/api/login', {
                 method: 'PUT',
                 headers: {
                     Accept: 'application/json',

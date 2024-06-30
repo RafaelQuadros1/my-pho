@@ -21,7 +21,7 @@ function Dash() {
 
     const fetchUserData = async () => {
       try {
-        let response = await fetch('https://ligajovemapi-private.onrender.com/api/teacher', {
+        let response = await fetch('https://phoenixapi.criarsite.online/api/teacher', {
           method: 'GET',
           headers: {
             Accept: 'application/json',
