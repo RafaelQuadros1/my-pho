@@ -72,7 +72,7 @@ function Chat({ userName }) {
     scrollToBottom(); // Scroll to the bottom after adding the user's message
 
     try {
-      let response = await fetch('https://ligajovemapi-private.onrender.com/api/teacher/chat', {
+      let response = await fetch('https://phoenixapi.criarsite.online/api/teacher/chat', {
         method: 'POST',
         body: JSON.stringify({ type: type, input: inputValue }),
         headers: {

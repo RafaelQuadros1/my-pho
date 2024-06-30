@@ -2,7 +2,7 @@
   "name": "my-app",
   "private": true,
   "version": "0.0.0",
-  "proxy": "https://concrete-flight-427619-t6.rj.r.appspot.com",
+  "proxy": "https://phoenixapi.criarsite.online/",
   "type": "module",
   "scripts": {
     "dev": "vite",

@@ -2,9 +2,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box; 
-}
-
-.about {
+  }
+  
+  .about {
     width: 100%;
     height: 70vh;
     display: flex;
@@ -12,21 +12,21 @@
     justify-content: center;
     flex-direction: column;
     gap: 10px;
-}
-
-.about h1 {
+  }
+  
+  .about h1 {
     padding-top: 150px;
-    font-size: 80px;
+    font-size: 60px;
     font-weight: 600;
-}
-
-.about h3 {
-    font-size: 30px;
+  }
+  
+  .about h3 {
+    font-size: 25px;
     font-weight: 500;
     color: #FF5038;
-}
-
-.about button {
+  }
+  
+  .about button {
     background-color: #FF5038;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     color: #fff;
@@ -35,16 +35,20 @@
     padding: 5px 15px;
     font-weight: 500;
     border-radius: 20px;
+    font-size: 20px;
     margin: 20px;
     cursor: pointer;
-}
-
-.about button:hover {
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Adicione transições */
+  }
+  
+  .about button:hover {
     background-color: #FF5038;
     color: white;
-}
-
-.arrow .jk {
+    transform: translateY(-2px); /* Eleve o botão levemente */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Aumente o efeito da sombra */
+  }
+  
+  .arrow .jk {
     width: 100%;
     height: 70px;
     margin-top: 100px;
@@ -52,22 +56,21 @@
     justify-content: center;
     align-items: center;
     color: #000000;
-}
-
-@keyframes arrowBounce {
+  }
+  
+  @keyframes arrowBounce {
     0% {
-        transform: translateX(0);
+      transform: translateX(0);
     }
     50% {
-        transform: translateY(10px);
+      transform: translateY(10px);
     }
     100% {
-        transform: translateX(0);
+      transform: translateX(0);
     }
-}
-
-.arrow .jk {
-
+  }
+  
+  .arrow .jk {
     width: 100%;
     height: 70px;
     display: flex;
@@ -77,34 +80,34 @@
     background: none; /* Remover fundo padrão do botão */
     border: none; /* Remover borda padrão do botão */
     cursor: pointer; /* Cursor de ponteiro ao passar sobre o botão */
-}
-
-.arrow .jk .arrow-icon {
+  }
+  
+  .arrow .jk .arrow-icon {
     animation: arrowBounce 1s infinite;
-}
-
-.title {
+  }
+  
+  .title {
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
     width: 100%;
     margin-top: 15rem;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.grid-container {
+  }
+  
+  .grid-container {
     display: grid;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
     column-gap: 50px;
     grid-template-columns: auto auto auto;
     margin-left: 15px;
-    margin-right: 15px;   
+    margin-right: 15px;  
     padding: 5px;
     margin-top: 5rem;
     gap: 25px;
-}
-
-.grid-item {
+  }
+  
+  .grid-item {
     background-color: rgba(255, 255, 255, 0.8);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
@@ -115,61 +118,61 @@
     transform: translateY(10px);
     animation: fadeIn 0.5s forwards;
     transition: all 0.3s ease;
-}
-
-.grid-item h2 {
+  }
+  
+  .grid-item h2 {
     font-size: 20px;
     text-align: left;
     margin-top: 5px;
-}
-
-.grid-item h3 {
+  }
+  
+  .grid-item h3 {
     padding: 5px;
     margin-top: 5px;
     margin-bottom: 10px;
     font-size: 18px;
     font-weight: 200;
     text-align: left;
-}
-
-.grid-item:hover {
+  }
+  
+  .grid-item:hover {
     transform: translateY(-10px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-}
-
-@media (max-width: 768px) {
+  }
+  
+  @media (max-width: 768px) {
     .grid-container {
-        grid-template-columns: auto;
-        padding: 0;
+      grid-template-columns: auto;
+      padding: 0;
     }
-}
-
-@keyframes fadeIn {
+  }
+  
+  @keyframes fadeIn {
     0% {
-        opacity: 0;
-        transform: translateY(-10px);
+      opacity: 0;
+      transform: translateY(-10px);
     }
     100% {
-        opacity: 1;
-        transform: translateY(0);
+      opacity: 1;
+      transform: translateY(0);
     }
-}
-
-@keyframes fadeOut {
+  }
+  
+  @keyframes fadeOut {
     0% {
-        opacity: 1;
-        transform: translateY(0);
+      opacity: 1;
+      transform: translateY(0);
     }
     100% {
-        opacity: 0;
-        transform: translateY(-10px);
+      opacity: 0;
+      transform: translateY(-10px);
     }
-}
-
-.fadeIn {
+  }
+  
+  .fadeIn {
     animation: fadeIn 0.5s forwards;
-}
-
-.fadeOut {
+  }
+  
+  .fadeOut {
     animation: fadeOut 0.5s forwards;
-}
+  }
