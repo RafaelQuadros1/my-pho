@@ -13,7 +13,7 @@ function Singups() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch("https://phoenixapi.criarsite.online/api/register", {
+      const response = await fetch("https://ligajovemapi-private.onrender.com/api/register", {
         method: 'POST',
         body: JSON.stringify({ name, mode, email, password }),
         headers: {

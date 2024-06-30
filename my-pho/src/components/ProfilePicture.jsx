@@ -21,7 +21,7 @@ const ProfilePicture = ({ userName, userEmail, userType, setLoading }) => {
 
     const deleteToken = async () => {
       try {
-        let response = await fetch('https://phoenixapi.criarsite.online/api/logout', {
+        let response = await fetch('https://ligajovemapi-private.onrender.com/api/logout', {
           method: 'DELETE',
           headers: {
             Accept: 'application/json',

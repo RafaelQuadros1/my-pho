@@ -25,7 +25,7 @@ function Logins() {
         event.preventDefault();
 
         try {
-            let response = await fetch('https://phoenixapi.criarsite.online/api/login', {
+            let response = await fetch('https://ligajovemapi-private.onrender.com/api/login', {
                 method: 'POST',
                 body: JSON.stringify({ email, password }),
                 headers: {
